@@ -1,5 +1,9 @@
 import React, {useState, useContext} from 'react'
-import {Text, Image, ActivityIndicator, TouchableOpacity} from 'react-native'
+import {Text, Image, ActivityIndicator, TouchableOpacity, View} from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+//import { Link } from 'react-router-dom';
 
 import {Input, 
         InputTexto, 
@@ -20,6 +24,8 @@ import {Input,
 
 
 import LogoImg from '../../assets/logo.png'
+
+
 
 import {UserContext} from '../../context/user'
 
@@ -54,6 +60,21 @@ const Login = () =>{
             setCarregando(false)
         }
     }
+
+    
+    function handleForgotPassword(){
+        //alert('O link de redefinição foi enviado para seu e-mail')
+        //console.warn(email, password)
+        try{
+            ForgotPassword()
+        }catch(err){
+            console.warn(err)
+        } 
+    }
+
+   
+
+    
     
 
 	return (
@@ -95,7 +116,21 @@ const Login = () =>{
             <InputTexto>Senha</InputTexto>
             <Input placeholder="Digite sua senha" secureTextEntry={true} onChangeText = {text => setPassword(text)} value={password}/>
 
-            <ForgotPassword>Esqueci minha senha</ForgotPassword>
+            <ForgotPassword>  
+            {/*
+            <Button onPress={() => { handleForgotPassword() }}/>
+                <ButtonPass>Entrar</ButtonPass>
+            */}
+
+                <TouchableOpacity onPress={() => { handleForgotPassword() }}>
+                <Text>Esqueci minha senha</Text></TouchableOpacity>
+            
+
+
+              
+
+
+               </ForgotPassword>  
 
             <ContainerButtons>
 

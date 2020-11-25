@@ -13,12 +13,15 @@ import {Container,
 
         const Settings = () => {
 
-        const { signOut } = useContext(UserContext)
+        const { signOut, ForgotPassword } = useContext(UserContext)
 
 	return (
         <Container>
                 <ContainerButtons>
-
+                <Button invert ={true} onPress={()=>{ ForgotPassword() }}>
+                        <ButtonText invert ={true}>Alterar minha senha</ButtonText>
+                        </Button>
+                
                         <Button invert ={true} onPress={()=>{ signOut() }}>
                         <ButtonText invert ={true}>Sair</ButtonText>
                         </Button>

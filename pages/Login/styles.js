@@ -73,6 +73,15 @@ export const ForgotPassword = styled.Text`
 
 `
 
+export const Link = styled.Text`
+    font-size:15px;
+    color:#ae1b73;
+    text-align:right;
+    font-weight:bold;
+    margin-top:5px;
+
+`
+
 
 export const ContainerButtons = styled.View`
     flex-direction: row;

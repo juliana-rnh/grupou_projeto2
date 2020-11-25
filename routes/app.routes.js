@@ -4,6 +4,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 
     import Chat from '../pages/Chat'
     import Settings from '../pages/Settings'
+    //import ResetPass from '../pages/ResetPass'
 
 const Tab = createBottomTabNavigator()
 

@@ -18,11 +18,40 @@ export const Texto = styled.Text`
     color:#fff;
 `
 
+export const ContainerId = styled.View`
+    font-size:20px;
+    margin-top: 90px;
+    color:#fff;
+`
+
+export const ContainerTxt = styled.Text`
+    font-size:20px;
+    margin-top: 40px;
+    color:#fff;
+`
+
 export const Message = styled.Text`
-    font-size:14px;
+    font-size:16px;
     text-align: justify;
     color:#fff;
-    padding-top:5px;
+    padding-top:30px;
+    margin-top: 10px;
+    border:1px solid #ae1b73;
+    border-radius: 15px;
+`
+
+export const Message1 = styled.Text`
+    font-size:16px;
+    text-align: right;
+    justify-content: flex-end;
+    color:#fff;
+    padding-top:30px;
+    background-color: ${props => props.invert ? "#fff" : "#ae1b73"};
+    border:1px solid #ae1b73;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-Weight: bold;
+
 `
 
 export const ContainerMessages = styled.View`
@@ -71,3 +100,24 @@ export const Input = styled.TextInput`
 `
 
 
+export const ForgotPassword = styled.Text`
+    flex:3;    
+    border:1px solid #ccc;'
+    height:60px;
+    border-radius:5px;
+    padding: 0 20px;
+    background-color: #e6e6e6;
+    margin-right:10px;
+
+`
+
+export const ButtonPass = styled.Text`
+    flex:3;    
+    border:1px solid #ccc;'
+    height:60px;
+    border-radius:5px;
+    padding: 0 20px;
+    background-color: #e6e6e6;
+    margin-right:10px;
+
+`

@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native'
 
 import AppRoutes from './app.routes'
 import AuthRoutes from './auth.routes'
+//import PassRoutes from './pass.routes'
 
 import {UserContext} from '../context/user'
 
@@ -14,7 +15,8 @@ const Routes = () => {
         <NavigationContainer>
         { user ?
         <AppRoutes /> : 
-        <AuthRoutes />
+        <AuthRoutes /> 
+        //<PassRoutes />
         }
         </NavigationContainer>
     )

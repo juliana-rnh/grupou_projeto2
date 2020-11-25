@@ -19,6 +19,15 @@ const UserProvider = ({children}) => {
         return listener
     },[])
 
+    const ForgotPassword = (email) => {
+        firebase.auth().sendPasswordResetEmail('jukiedis0@gmail.com')
+          .then(function (user) {
+            alert('O link de redefinição foi enviado para seu e-mail')
+          }).catch(function (e) {
+            console.log(e)
+          })
+      }
+
     const signIn = (email, password) =>{
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(resp => {
@@ -50,8 +59,10 @@ const UserProvider = ({children}) => {
         })
     }
 
+    
+
     return (
-        <UserContext.Provider value={{ user, signIn, signOut, signUp }}>
+        <UserContext.Provider value={{ user, signIn, signOut, signUp, ForgotPassword }}>
             {children}
         </UserContext.Provider>
     )
