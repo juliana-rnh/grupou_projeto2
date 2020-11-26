@@ -63,7 +63,7 @@ const Login = () =>{
 
     
     function handleForgotPassword(){
-        //alert('O link de redefinição foi enviado para seu e-mail')
+        alert('O link de redefinição foi enviado para seu e-mail')
         //console.warn(email, password)
         try{
             ForgotPassword()
@@ -138,7 +138,7 @@ const Login = () =>{
 
                     {carregando ?
                         <ActivityIndicator color="red"/> : 
-                            <ButtonText invert={true}>Cadastre-see</ButtonText>
+                            <ButtonText invert={true}>Cadastre-se</ButtonText>
                     }
                 
                 </Button>

@@ -73,8 +73,9 @@ const Chat = () =>{
         
         //TENTATIVA DE CRIAR GROUPCHAT
         const handleCreateGroupChat = () =>{
-                firebase.firestore().collection('groupchat').add({
+                firebase.firestore().collection('groupchat').orderBy('desc').add({
                         texto: newGroupMessage
+                        
                 })      
                 setnewGroupMessage("")
         }
@@ -110,7 +111,8 @@ const Chat = () =>{
                 <ScrollView >
                         {messages.map(message=>(
                                 message.usuario === user.email ? 
-                                <Message1 key = {message.id}>  {message.texto}</Message1>:
+                                <Message1 key = {message.id}>{message.texto}</Message1>
+                                :
                                 <Message key={message.id}>{message.texto}
                              
                              </Message>  

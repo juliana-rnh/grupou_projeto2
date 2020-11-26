@@ -9,13 +9,28 @@ const UserContext = createContext({})
 const UserProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
+    const [group, setGroup] = useState(null)
+    const [route, setRoute] = useState(null)
 
     const ListenAuth = (userState) =>{
         setUser(userState)
     }
 
+    const ChangeGroup = (groupState) =>{
+        setGroup(groupState)
+    }
+
+    const ChangeRoute = (route) =>{
+        setRoute(route)
+    }
+
     useEffect(()=>{
         const listener = firebase.auth().onAuthStateChanged(ListenAuth)
+        return listener
+    },[])
+
+    useEffect(()=>{
+        const listener = firebase.auth().onAuthStateChanged(ChangeGroup)
         return listener
     },[])
 
@@ -62,7 +77,7 @@ const UserProvider = ({children}) => {
     
 
     return (
-        <UserContext.Provider value={{ user, signIn, signOut, signUp, ForgotPassword }}>
+        <UserContext.Provider value={{ user, group, route, signIn, signOut, signUp, ForgotPassword, ChangeGroup, ChangeRoute }}>
             {children}
         </UserContext.Provider>
     )

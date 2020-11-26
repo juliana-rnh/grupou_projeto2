@@ -1,17 +1,22 @@
-import React, {} from 'react'
+import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
+import { UserContext } from '../context/user'
+
     import Chat from '../pages/Chat'
     import Settings from '../pages/Settings'
-    //import ResetPass from '../pages/ResetPass'
+    import Group from '../pages/Group'
+
+    
 
 const Tab = createBottomTabNavigator()
 
 const AppRoutes = () => {
+    const { route } = useContext(UserContext)
     return (
 
-        <Tab.Navigator
+        /*<Tab.Navigator
             initialRouteName="Grupos"
             tabBarOptions={
                 {
@@ -20,10 +25,19 @@ const AppRoutes = () => {
                 }
             }
         >
-
-
+        */
+        <Tab.Navigator
+        initialRouteName={route === 'chat' ? "Chat" : "Grupos"}
+            tabBarOptions={
+                {
+                    activeTintColor: 'tomato',
+                    inactiveTintColor: '#ccc',
+                }
+            }
+        >
+            {/*
             <Tab.Screen name="Grupos" 
-                        component={Chat} 
+                        component={Group} 
                         options ={
                             {tabBarIcon : ({color}) => ( 
                             <MaterialCommunityIcons
@@ -32,15 +46,29 @@ const AppRoutes = () => {
                                 size={32}/> )}
                             }
             />
+                        */}
+
+            <Tab.Screen name="Chat" 
+                        component={Chat} 
+                        options ={
+                            {tabBarIcon : ({color}) => ( 
+                            <MaterialCommunityIcons
+                                name="chat"
+                                color={color}
+                                size={33}/> )}
+                            }
+            />
             <Tab.Screen name="Configurações" component={Settings}
                         options ={
                             {tabBarIcon : ({color}) => ( 
                             <MaterialCommunityIcons
                                 name="settings"
                                 color={color}
-                                size={32}/> )}
+                                size={33}/> )}
                             }
             />
+
+            
 
 
         </Tab.Navigator>
